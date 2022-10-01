@@ -1,0 +1,38 @@
+Application pour la gestion des achats
+
+l'application permet de :
+
+- générer le mail type d'envoi au fournisseur en complétant le SIRET, les adresses de facturation et de livraison et la description de la commande
+
+- Assurer le suivi des achats en les enregistrant dans une base de données
+
+Architecture :
+
+MVC Php
+
+Routeur : Récupère les requêtes Http et dispatche aux controllers
+
+Controllers : ils récupèrent le modèle dans la Bdd et renvoient la Vue
+
+Router : fichier index.php
+Controllers : Dans le répertoire controllers
+Templates : 
+- Layout
+- contenu
+Le layout définit la mise en page générale (Head + Body (Nav + contenu + footer))
+Le contenu contient uniquement le code Html  à générer avec les variables Php (données par le controller)
+
+Le router require les fonctions des controllers : 
+- le routeur appelle la fonction correspondant à la requête :
+- La fonction appelle la Bdd et génère les variables et les données
+- Le layout récupère le contenu (template) avec les données
+
+
+A faire : 
+
+créer les modèles avec des classes plutôt
+
+ - Ajouter une gestion d'erreur si cabinet sélectionné pas dans la liste ou id = -1
+- Ajouter un fichier de conf
+- créer une classe de connexion à la DB (pour éviter les répétitions PDO dans les fichiers)
+- faire les tests d'erreur
