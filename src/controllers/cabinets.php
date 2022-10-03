@@ -18,6 +18,14 @@ function cabinets() {
             $erreur = "Le cabinet n'existe pas";
         }
     }
+
+    else if (isset($_GET['findByNom']) && $_GET['findByNom'] == "yes") {
+
+        $nom = $_POST["nom"];
+        
+        $cabinets = $service->findByNom($nom);
+        
+    }
   
     else $cabinets = $service->findAll();
 
@@ -29,5 +37,6 @@ function cabinets() {
     
 	require('templates/cabinets.php');
 }
+
 
 ?>

@@ -45,6 +45,26 @@ class CabinetService {
         return $tab;
     }
 
+    public function findByNom($nom) {
+        $sqlQuery = 'SELECT * FROM cabinets WHERE nom_gcl LIKE ? OR nom_juridique LIKE ?';
+        $query_statement = $this->db->prepare($sqlQuery);
+        $nom = "%".$nom."%";
+        $query_statement->execute(array($nom,$nom));
+        $res =  $query_statement->fetchAll();
+
+        $tab = array();
+
+        foreach ($res as $cabinet) {
+            # code...
+            $cab = $this->createCabinet($cabinet);
+
+            array_push($tab, $cab);
+
+        }
+
+        return $tab;
+    }
+
     public function get($id) {
         
         if($id === "-1") throw new ErrorException("le cabinet n'existe pas !!!");

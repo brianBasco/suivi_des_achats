@@ -2,7 +2,24 @@
 
 <?php ob_start(); ?>
 
-<table class="table table-striped"">
+<form class="form-floating" action="./?action=cabinets&findByNom=yes" method="POST" >
+
+<div class="container">
+  <div class="row">
+    <div class="col-2">
+      <input type="text" class="form-control" id="findByNom" placeholder="chercher nom GCL" name="nom" >
+    </div>
+    <div class="col-2">
+    <button type="submit" class="btn btn-primary">Chercher</button>
+    </div>
+    
+  </div>
+ 
+</div>
+  
+</form>
+
+<table class="table table-striped table-sm">
   <thead>
     <tr>
       <th scope="col">nom gcl</th>

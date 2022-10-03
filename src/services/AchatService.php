@@ -54,6 +54,8 @@ class AchatService {
         return $tab;        
     }
 
+    
+
     public function get($id) {
         $sqlQuery = 'SELECT * FROM suivi_achats WHERE id='.$id;
         $query_statement = $this->db->prepare($sqlQuery);

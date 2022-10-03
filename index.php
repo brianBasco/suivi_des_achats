@@ -20,6 +20,7 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         	return generer_mail();
     	}
 	
+	
     else {
     	echo "Erreur 404 : la page que vous recherchez n'existe pas.";
 	}
