@@ -5,7 +5,14 @@ function generer_mail() {
 
     require_once('src/models/Achat.php');
     require_once('src/services/CabinetService.php');
+    require_once('src/services/AchatService.php');
     require_once('src/controllers/erreurs.php');
+
+    if (isset($_GET['generer']) && $_GET['generer'] == "yes") {
+
+        return envoyer_mail();
+        
+    }
 
     $cabinetService = new CabinetService();
     
@@ -33,6 +40,23 @@ function generer_mail() {
        
 
    	require('templates/mail.php');
+}
+
+function envoyer_mail() {
+
+
+   
+    $to      = 'bast620@gmail.com';
+    $subject = 'le sujet';
+    $message = 'Bonjour !';
+    $headers = 'From: webmaster@example.com' . "\r\n" .
+    'Reply-To: webmaster@example.com' . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+
+    mail($to, $subject, $message, $headers);
+
+
+
 }
 
 ?>

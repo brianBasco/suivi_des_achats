@@ -28,6 +28,14 @@ Le router require les fonctions des controllers :
 - Le layout récupère le contenu (template) avec les données
 
 
+infos complémentaires :
+
+Style à utiliser avec Bootstrap5 pour avoir les bordures  :
+<fieldset class="border p-2">
+<legend class="w-auto" style="float: none; padding: inherit;">Modifier</legend>
+
+
+
 A faire : 
 
 créer les modèles avec des classes plutôt
@@ -36,3 +44,7 @@ créer les modèles avec des classes plutôt
 - Ajouter un fichier de conf
 - créer une classe de connexion à la DB (pour éviter les répétitions PDO dans les fichiers)
 - faire les tests d'erreur
+- ajouter un CMS pour la liste des cabinets (finaliser l'update)
+- générer un mail lors de la génération de l'achat
+
+- améliorer l'affichage des tel sur la bdd : solution insérer les numéros sans espace dans bdd et gérer affichage avec insertion des espaces en php

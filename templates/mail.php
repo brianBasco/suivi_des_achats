@@ -2,6 +2,7 @@
 
 <?php ob_start(); ?>
 
+<form action="./?action=mail&generer=yes" method="post">
 
 <div class="input-group mb-3">
     <span class="input-group-text">Matériel</span>
@@ -36,6 +37,14 @@ Merci par avance.
     </textarea>
 
 </div>
+
+<div class="container">
+
+<input type="submit" class="btn btn-primary" value="Envoyer">
+
+</div>
+
+</form>
 
 
 <?php $content = ob_get_clean(); ?>

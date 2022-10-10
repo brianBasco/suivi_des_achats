@@ -67,7 +67,11 @@ class CabinetService {
 
     public function get($id) {
         
-        if($id === "-1") throw new ErrorException("le cabinet n'existe pas !!!");
+        if($id === "-1") {
+            $na = "N/A";
+            return new Cabinet(-1,$na,$na,$na,$na,$na,$na,$na,$na,$na,$na,$na,$na,$na,$na); 
+
+        }
         
         $sqlQuery = 'SELECT * FROM cabinets WHERE id='.$id;
         $query_statement = $this->db->prepare($sqlQuery);
@@ -75,6 +79,42 @@ class CabinetService {
         $res = $query_statement->fetchAll()[0];
 
         return $this->createCabinet($res);
+    }
+
+    public function updateCabinet($cabinet, $id) {
+
+        $sqlQuery = "UPDATE cabinets SET
+            nom_gcl=?
+            nom_juridique=?
+            siren=?
+            siret=?
+            numero_tva=?
+            adresse=?
+            code_postal=?
+            ville=?
+            tel=?
+            dossier_dia=?
+            ou_ad=?
+            attribut_facturation=? WHERE id = ?";
+
+        $query_statement = $this->db->prepare($sqlQuery);
+        $query_statement->execute(array(
+            $cabinet->getNom_gcl(),
+            $cabinet->getNom_juridique(),
+            $cabinet->getSiret(),
+            $cabinet->getSiren(),
+            $cabinet->getNumero_tva(),
+            $cabinet->getAdresse(),
+            $cabinet->getCode_postal(),
+            $cabinet->getVille(),
+            $cabinet->getTel(),
+            $cabinet->getDossier_dia(),
+            $cabinet->getOu_ad(),
+            $cabinet->getAttribut_facturation(),
+            $id
+
+        ));
+
     }
 
 }
